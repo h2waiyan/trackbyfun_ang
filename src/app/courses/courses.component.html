@@ -1,11 +1,16 @@
-<ul *ngFor='let employee of employees;'
-    class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-
-    <li>{{employee.code}} {{employee.name}}
-        {{employee.gender}} {{employee.salary}}</li>
+<ul
+  *ngFor="let employee of employees; trackBy: trackByEmpCode"
+  class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+>
+  <li>
+    {{ employee.code }} {{ employee.name }} {{ employee.gender }}
+    {{ employee.salary }}
+  </li>
 </ul>
 
+<div *ngFor="let course of courses; trackBy: trackByCourses">
+  <h1>{{ course }}</h1>
+</div>
 
-<button (click)="getEmployees()">
-    Refresh
-</button>
+<button (click)="getEmployees()">Refresh</button>
+<button (click)="getNewCourses()">Refresh Courses</button>

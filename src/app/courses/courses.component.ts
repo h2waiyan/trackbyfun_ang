@@ -9,6 +9,8 @@ export class CoursesComponent implements OnInit {
 
   employees: any[];
 
+  courses: string[] = ['python', 'angular', 'flutter'];
+
   constructor() {
     this.employees = [
       {
@@ -48,7 +50,7 @@ export class CoursesComponent implements OnInit {
         salary: 57000
       },
       {
-        code: '1003', name: 'shreeja', gender: 'Female',
+        code: '1003', name: 'Htoo Wai Yan', gender: 'Female',
         salary: 59000
       },
       {
@@ -60,6 +62,16 @@ export class CoursesComponent implements OnInit {
         salary: 67000
       }
     ];
+  }
+
+  trackByCourses(index: number, course: string) {
+    return course;
+  }
+
+  getNewCourses(): void {
+    this.courses = [
+      'python', 'angular', 'fulll', 'nodejs'
+    ]
   }
 
 
