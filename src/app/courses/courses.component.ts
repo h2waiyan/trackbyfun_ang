@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SigninserviceService } from '../signinservice.service';
 
 @Component({
   selector: 'app-courses',
@@ -9,9 +10,11 @@ export class CoursesComponent implements OnInit {
 
   employees: any[];
 
+  msinewcourses?: string[];
+
   courses: string[] = ['python', 'angular', 'flutter'];
 
-  constructor() {
+  constructor(private signinService: SigninserviceService) {
     this.employees = [
       {
         code: '1001', name: 'drashti', gender: 'Female',
@@ -33,6 +36,7 @@ export class CoursesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.msinewcourses = this.signinService.msicourses;
   }
 
   trackByEmpCode(index: number, employee: any): string {
@@ -50,7 +54,7 @@ export class CoursesComponent implements OnInit {
         salary: 57000
       },
       {
-        code: '1003', name: 'Htoo Wai Yan', gender: 'Female',
+        code: '1008', name: 'Htoo Wai Yan', gender: 'Female',
         salary: 59000
       },
       {
@@ -72,7 +76,15 @@ export class CoursesComponent implements OnInit {
     this.courses = [
       'python', 'angular', 'fulll', 'nodejs'
     ]
+
+    this.msinewcourses?.push("python");
   }
 
+  updateServiceCourses() {
+    this.signinService.updateCourses(this.msinewcourses!);
+  }
 
+  getpdatedServiceCourses() {
+    console.log(this.signinService.msicourses);
+  }
 }

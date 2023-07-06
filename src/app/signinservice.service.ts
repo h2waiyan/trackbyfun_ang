@@ -7,4 +7,9 @@ export class SigninserviceService {
 
   constructor() { }
 
+  msicourses = ['angular', 'flutter', 'nodejs'];
+
+  updateCourses(updatedArray: string[]) {
+    this.msicourses = updatedArray;
+  }
 }
