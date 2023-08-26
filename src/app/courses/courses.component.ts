@@ -12,24 +12,36 @@ export class CoursesComponent implements OnInit {
 
   msinewcourses?: string[];
 
-  courses: string[] = ['python', 'angular', 'flutter'];
+  courses: any[] = [
+    { id: 1, name: "python" },
+    { id: 2, name: "angular" },
+    { id: 3, name: "flutter" }
+  ];
 
   constructor(private signinService: SigninserviceService) {
     this.employees = [
       {
-        code: '1001', name: 'drashti', gender: 'Female',
+        code: '1001',
+        name: 'drashti',
+        gender: 'Female',
         salary: 55500
       },
       {
-        code: '1002', name: 'namrata', gender: 'Female',
+        code: '1002',
+        name: 'namrata',
+        gender: 'Female',
         salary: 57000
       },
       {
-        code: '1003', name: 'shreeja', gender: 'Female',
+        code: '1003',
+        name: 'shreeja',
+        gender: 'Female',
         salary: 59000
       },
       {
-        code: '1004', name: 'shreenil', gender: 'Male',
+        code: '1004',
+        name: 'shreenil',
+        gender: 'Male',
         salary: 65000
       }
     ];
@@ -46,7 +58,7 @@ export class CoursesComponent implements OnInit {
   getEmployees(): void {
     this.employees = [
       {
-        code: '1001', name: 'drashti', gender: 'Female',
+        code: '100100', name: 'drashti', gender: 'Female',
         salary: 55500
       },
       {
@@ -54,7 +66,7 @@ export class CoursesComponent implements OnInit {
         salary: 57000
       },
       {
-        code: '1008', name: 'Htoo Wai Yan', gender: 'Female',
+        code: '1003', name: 'Htoo Wai Yan', gender: 'Female',
         salary: 59000
       },
       {
@@ -68,23 +80,18 @@ export class CoursesComponent implements OnInit {
     ];
   }
 
-  trackByCourses(index: number, course: string) {
-    return course;
+  trackByCourses(index: number, course: any): string {
+    return course.id;
   }
 
   getNewCourses(): void {
     this.courses = [
-      'python', 'angular', 'fulll', 'nodejs'
+      { id: 1, name: "python" },
+      { id: 2, name: "angular" },
+      { id: 3, name: "flutter" }, { id: 4, name: "nodejs" },
+
     ]
 
-    this.msinewcourses?.push("python");
-  }
-
-  updateServiceCourses() {
-    this.signinService.updateCourses(this.msinewcourses!);
-  }
-
-  getpdatedServiceCourses() {
-    console.log(this.signinService.msicourses);
+    // this.msinewcourses?.push("python");
   }
 }
